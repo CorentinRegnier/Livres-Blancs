@@ -38,9 +38,20 @@ footer {
         color: #858585;
         font-size: 12px;
         padding-top: 50px;
+        span {
 
+            &:after {
+                content: ' \00b7\  ';
+                text-decoration: inherit;
+            }
+        }
         a[href] {
             color: #858585;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
     .block-content--description {

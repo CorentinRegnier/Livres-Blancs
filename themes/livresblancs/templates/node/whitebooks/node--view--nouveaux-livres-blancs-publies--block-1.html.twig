@@ -78,46 +78,58 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
         <article{{ attributes.addClass(classes) }}>
             {% if not page %}
                 <div class="col-lg-3 col-md-4 col-sm-4">
-                    <img src="{{ file_url(node.get('field_image').0.entity.uri.value) }}"
+                    <img src="{{ file_url(node.field_image.0.entity.uri.value) }}"
                          alt="{{ node.getTitle() }}"/>
                 </div>
                 <div class="col-lg-9 col-md-8 col-sm-8 info-livre">
-                    <b>
-                        <a href="{{ url }}" class="title" rel="bookmark">
-                            {{ label }}
-                        </a>
-                    </b>
-                    <br>
-                    <span class="sub-title">
-                        {{ createdDate|date('d/m/Y') }} |
-                        <span class="author">{{ node.get('uid').entity.name.value }}</span>
-                         | <b>{{ node.get('field_categorie_principale').entity.name.value }}</b>
-                    </span>
-                    <span class="download"><i
-                                class="material-icons">&#xE2C4;</i>{{ node.get('field_download_count').value }}</span>
-                    <br>
-                    <div class="mt-10 mb-20">
-                        {% for keyWord in node.get('field_key_words') %}
-                            <span class="keywords">
-                                {{ keyWord.value|upper }}
-                            </span>
-                        {% endfor %}
-                    </div>
-                    <div class="resume">
+                    <div class="adapt-width">
+                        <h3>
+                            <a href="{{ url }}" class="title" rel="bookmark">
+                                {{ label }}
+                            </a>
+                        </h3>
                         <p>
-                            {{ node.get('field_resume').value }}
+                            <span class="sub-title">
+                                {{ createdDate|date('d/m/Y') }} |
+                                <span class="author">
+                                    {% for editor in this_editor %}
+                                        {% if loop.index == 1 %}
+                                            <a href="{{ path('entity.node.canonical', {'node': editor.id}) }}">{{ editor.getTitle() }}</a>
+                                        {% endif %}
+                                    {% endfor %}
+                                </span>
+                                    |
+                                <strong>{{ node.get('field_categorie_principale').entity.name.value }}</strong>
+                            </span>
+                            <span class="download gray-text"><i
+                                        class="material-icons">file_download</i>
+                                {{ node.get('field_download_count').value }}
+                            </span>
+
                         </p>
-                    </div>
-                    <div>
-                        <a target="_blank" class="button-download vt-bottom" href="
+                        <div class="mt-10 mb-20">
+                            {% for keyWord in node.get('field_key_words') %}
+                                <span class="keywords">
+                                    {{ keyWord.value|upper }}
+                                </span>
+                            {% endfor %}
+                        </div>
+                        <div class="resume">
+                            <p>
+                                {{ node.get('field_resume').value }}
+                            </p>
+                        </div>
+                        <div>
+                            <a target="_blank" class="button-download vt-bottom" href="
                         {% if logged_in %}
                             {{ file_url(node.get('field_file').0.entity.uri.value) }}
                         {% else %}
                             {{ url('user.register') }}
                         {% endif %}
                         ">
-                            Télécharger <i class="material-icons ico-butt-download">&#xE2C4;</i>
-                        </a>
+                                Télécharger <i class="material-icons ico-butt-download">file_download</i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             {% endif %}

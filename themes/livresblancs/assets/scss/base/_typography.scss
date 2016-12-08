@@ -13,9 +13,49 @@
     vertical-align: bottom;
 }
 
-h4 {
+h2 {
     font-size: 18px;
     color: #666666;
     text-transform: uppercase;
+    font-weight: 300;
 }
 
+.small-text {
+    color: #666666;
+    font-size: 12px;
+}
+
+.gray-text {
+    font-size: 13px;
+    color: #aaa;
+}
+
+.keywords {
+    background-color: rgb(238, 238, 238);
+    border-color: rgb(102, 102, 102);
+    border-width: 0px;
+    border-radius: 0px;
+    border-style: solid;
+    color: rgb(102, 102, 102);
+    font-weight: bold;
+    font-size: 8px;
+    text-align: center;
+    margin: 20px 10px 0 0;
+    padding: 6px 10px;
+}
+
+.font-weight-300 {
+    font-weight: 300;
+}
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+.font-weight-700 {
+    font-weight: 700;
+}
+
+.font-weight-900 {
+    font-weight: 900;
+}

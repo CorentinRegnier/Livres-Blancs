@@ -1,26 +1,76 @@
 // Nouveaux livres blancs publiés
 // -----------------------------------------------------------------------------
+.white-books--teaser {
+
+    h3 {
+        margin: 0 !important;
+        font-weight: bold;
+    }
+}
+
+.item-white-book {
+
+    p {
+        margin-bottom: 15px;
+    }
+    .button-download {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    h4 {
+        color: #0065b3;
+        font-size: 12px;
+        a:hover {
+            text-decoration: none;
+            opacity: 0.7;
+            transition: 0.3s;
+            transition-timing-function: linear;
+        }
+    }
+    h1 {
+        color: #0065b3;
+        font-size: 28px;
+        margin-top: 0;
+
+        &:hover {
+            opacity: 0.7;
+            transition: 0.3s;
+            transition-timing-function: linear;
+        }
+    }
+    .material-icons {
+        font-size: 16px;
+    }
+
+}
+
+.view--nouveaux-livres-blancs-publies, .item-white-book {
+
+    img {
+
+        &:hover {
+            opacity: 0.7;
+            transition: 0.3s;
+            transition-timing-function: linear;
+        }
+    }
+}
 
 .view--nouveaux-livres-blancs-publies {
 
+    img {
+        border-width: 1px;
+        border-radius: 0px;
+        border-color: rgb(200, 200, 200);
+        border-style: solid;
+    }
     .info-livre {
         height: 285px;
 
         p {
             max-height: 126px;
             overflow: hidden;
-        }
-    }
-    img {
-        border-width: 1px;
-        border-radius: 0px;
-        border-color: rgb(200, 200, 200);
-        border-style: solid;
-
-        &:hover {
-            opacity: 0.7;
-            transition: 0.3s;
-            transition-timing-function: linear;
         }
     }
 
@@ -45,26 +95,11 @@
 
     .download {
         font-size: 16px !important;
-        color: #aaa;
         float: right;
 
         .material-icons {
             font-size: 16px !important;
         }
-    }
-
-    .keywords {
-        background-color: rgb(238, 238, 238);
-        border-color: rgb(102, 102, 102);
-        border-width: 0px;
-        border-radius: 0px;
-        border-style: solid;
-        color: rgb(102, 102, 102);
-        font-weight: bold;
-        font-size: 8px;
-        text-align: center;
-        margin: 20px 10px 0 0;
-        padding: 6px 10px;
     }
 
     .resume {
@@ -100,16 +135,107 @@
     }
 }
 
+.button-download {
+    background-color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 10px 14px;
+    border-width: 1px;
+    border-radius: 0px;
+    border-style: solid;
+    border-color: rgb(0, 101, 179);
+    color: rgb(0, 101, 179);
+    font-size: 14px;
+    font-style: normal;
+    text-align: center;
+    bottom: 0;
+
+    &:hover {
+        text-decoration: none;
+        background-color: rgb(0, 101, 179);
+        color: rgb(255, 255, 255);
+        transition: 0.3s;
+        transition-timing-function: linear;
+    }
+    .ico-butt-download {
+        font-size: 16px;
+    }
+}
+
 .sub-title {
     text-transform: uppercase;
     color: #0065b3;
     font-size: 13px;
 }
 
+.recommanded {
+    color: #88ac2e;
+    font-size: 14px;
+}
+
+.resume {
+    color: #666666;
+    font-size: 15px
+}
+
+.description {
+    font-size: 15px;
+    color: #666666;
+}
+
+.stat-white-book {
+    font-size: 14px;
+    color: #aaa;
+
+    .number-stat {
+        color: #666666;
+    }
+}
+
+.share-social-link {
+    font-size: 13px;
+    color: #666666;
+
+    a {
+        text-decoration: none;
+    }
+    .social-link {
+        font-size: 28px;
+        vertical-align: middle;
+
+        &:hover {
+            opacity: 0.7;
+            transition: 0.3s;
+            transition-timing-function: linear;
+        }
+    }
+    .facebook {
+        color: #3b5999;
+    }
+    .twitter {
+        color: #2ba8de;
+    }
+    .google-plus {
+        color: #cc3731;
+    }
+    .linkedin {
+        color: #007ab5;
+    }
+    .pinterest {
+        color: #ca1f28;
+    }
+}
+
 @media (max-width: $screen-desktop - 1) {
 
     .download {
         float: none !important;
+    }
+
+    .info-livre {
+
+        .adapt-width {
+            width: 95%;
+        }
     }
 }
 
@@ -121,12 +247,17 @@
         }
         .info-livre {
             height: auto;
+
+            .adapt-width {
+                width: 100%;
+            }
         }
     }
     .button-download {
         position: relative !important;
     }
     .view--nouveaux-livres-blancs-publies {
+
         .row {
             text-align: center;
             margin: 0;

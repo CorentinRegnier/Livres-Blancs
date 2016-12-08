@@ -5959,8 +5959,7 @@ button.close {
 :root .fa-rotate-270,
 :root .fa-flip-horizontal,
 :root .fa-flip-vertical {
-  -webkit-filter: none;
-          filter: none; }
+  filter: none; }
 
 .fa-stack {
   position: relative;
@@ -8496,10 +8495,48 @@ ul.dropdown-menu li {
 .vt-bottom {
   vertical-align: bottom; }
 
-h4 {
+h2 {
   font-size: 18px;
   color: #666666;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-weight: 300; }
+
+.small-text {
+  color: #666666;
+  font-size: 12px; }
+
+.gray-text {
+  font-size: 13px;
+  color: #aaa; }
+
+.keywords {
+  background-color: #eeeeee;
+  border-color: #666666;
+  border-width: 0px;
+  border-radius: 0px;
+  border-style: solid;
+  color: #666666;
+  font-weight: bold;
+  font-size: 8px;
+  text-align: center;
+  margin: 20px 10px 0 0;
+  padding: 6px 10px; }
+
+.font-weight-300 {
+  font-weight: 300; }
+
+.font-weight-500 {
+  font-weight: 500; }
+
+.font-weight-700 {
+  font-weight: 700; }
+
+.font-weight-900 {
+  font-weight: 900; }
+
+.block--views-block--actualites-block-1 h3 {
+  margin: 0 !important;
+  font-size: 14px; }
 
 .block--views-block--actualites-block-1 .block__title {
   margin: 0 0 11px 0;
@@ -8512,6 +8549,9 @@ h4 {
   opacity: 0.7;
   transition: 0.3s;
   transition-timing-function: linear; }
+
+.block--views-block--actualites-block-1 .view__row:last-child .item-actualities {
+  padding-bottom: 0; }
 
 .item-actualities {
   padding-bottom: 35px; }
@@ -8599,8 +8639,14 @@ footer {
     color: #858585;
     font-size: 12px;
     padding-top: 50px; }
+    footer .block-content--allrightsreserved span:after {
+      content: ' \00b7\  ';
+      text-decoration: inherit; }
     footer .block-content--allrightsreserved a[href] {
-      color: #858585; }
+      color: #858585;
+      text-decoration: underline; }
+      footer .block-content--allrightsreserved a[href]:hover {
+        text-decoration: none; }
   footer .block-content--description {
     color: #858585;
     font-size: 12px;
@@ -8702,7 +8748,7 @@ header {
   display: block; }
   header img {
     width: 200px;
-    height: 81px;
+    height: auto;
     position: relative; }
   header .container-fluid {
     padding-right: 0px;
@@ -8712,21 +8758,55 @@ header {
   header {
     height: inherit; } }
 
-.view--nouveaux-livres-blancs-publies .info-livre {
-  height: 285px; }
-  .view--nouveaux-livres-blancs-publies .info-livre p {
-    max-height: 126px;
-    overflow: hidden; }
+.white-books--teaser h3 {
+  margin: 0 !important;
+  font-weight: bold; }
+
+.item-white-book p {
+  margin-bottom: 15px; }
+
+.item-white-book .button-download {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px; }
+
+.item-white-book h4 {
+  color: #0065b3;
+  font-size: 12px; }
+  .item-white-book h4 a:hover {
+    text-decoration: none;
+    opacity: 0.7;
+    transition: 0.3s;
+    transition-timing-function: linear; }
+
+.item-white-book h1 {
+  color: #0065b3;
+  font-size: 28px;
+  margin-top: 0; }
+  .item-white-book h1:hover {
+    opacity: 0.7;
+    transition: 0.3s;
+    transition-timing-function: linear; }
+
+.item-white-book .material-icons, .item-white-book .navbar-header .block--account-authitificated li:last-child a::after, .navbar-header .block--account-authitificated li:last-child .item-white-book a::after, .item-white-book .navbar-header .block--account-anonymous li:last-child a::after, .navbar-header .block--account-anonymous li:last-child .item-white-book a::after, .item-white-book .slick-prev:before, .item-white-book .slick-next:before {
+  font-size: 16px; }
+
+.view--nouveaux-livres-blancs-publies img:hover, .item-white-book img:hover {
+  opacity: 0.7;
+  transition: 0.3s;
+  transition-timing-function: linear; }
 
 .view--nouveaux-livres-blancs-publies img {
   border-width: 1px;
   border-radius: 0px;
   border-color: #c8c8c8;
   border-style: solid; }
-  .view--nouveaux-livres-blancs-publies img:hover {
-    opacity: 0.7;
-    transition: 0.3s;
-    transition-timing-function: linear; }
+
+.view--nouveaux-livres-blancs-publies .info-livre {
+  height: 285px; }
+  .view--nouveaux-livres-blancs-publies .info-livre p {
+    max-height: 126px;
+    overflow: hidden; }
 
 .view--nouveaux-livres-blancs-publies .title {
   font-size: 24px;
@@ -8742,23 +8822,9 @@ header {
 
 .view--nouveaux-livres-blancs-publies .download {
   font-size: 16px !important;
-  color: #aaa;
   float: right; }
   .view--nouveaux-livres-blancs-publies .download .material-icons, .view--nouveaux-livres-blancs-publies .download .navbar-header .block--account-authitificated li:last-child a::after, .navbar-header .block--account-authitificated li:last-child .view--nouveaux-livres-blancs-publies .download a::after, .view--nouveaux-livres-blancs-publies .download .navbar-header .block--account-anonymous li:last-child a::after, .navbar-header .block--account-anonymous li:last-child .view--nouveaux-livres-blancs-publies .download a::after, .view--nouveaux-livres-blancs-publies .download .slick-prev:before, .view--nouveaux-livres-blancs-publies .download .slick-next:before {
     font-size: 16px !important; }
-
-.view--nouveaux-livres-blancs-publies .keywords {
-  background-color: #eeeeee;
-  border-color: #666666;
-  border-width: 0px;
-  border-radius: 0px;
-  border-style: solid;
-  color: #666666;
-  font-weight: bold;
-  font-size: 8px;
-  text-align: center;
-  margin: 20px 10px 0 0;
-  padding: 6px 10px; }
 
 .view--nouveaux-livres-blancs-publies .resume {
   color: #666666;
@@ -8787,20 +8853,87 @@ header {
   .view--nouveaux-livres-blancs-publies .button-download .ico-butt-download {
     font-size: 16px; }
 
+.button-download {
+  background-color: white;
+  font-weight: bold;
+  padding: 10px 14px;
+  border-width: 1px;
+  border-radius: 0px;
+  border-style: solid;
+  border-color: #0065b3;
+  color: #0065b3;
+  font-size: 14px;
+  font-style: normal;
+  text-align: center;
+  bottom: 0; }
+  .button-download:hover {
+    text-decoration: none;
+    background-color: #0065b3;
+    color: white;
+    transition: 0.3s;
+    transition-timing-function: linear; }
+  .button-download .ico-butt-download {
+    font-size: 16px; }
+
 .sub-title {
   text-transform: uppercase;
   color: #0065b3;
   font-size: 13px; }
 
+.recommanded {
+  color: #88ac2e;
+  font-size: 14px; }
+
+.resume {
+  color: #666666;
+  font-size: 15px; }
+
+.description {
+  font-size: 15px;
+  color: #666666; }
+
+.stat-white-book {
+  font-size: 14px;
+  color: #aaa; }
+  .stat-white-book .number-stat {
+    color: #666666; }
+
+.share-social-link {
+  font-size: 13px;
+  color: #666666; }
+  .share-social-link a {
+    text-decoration: none; }
+  .share-social-link .social-link {
+    font-size: 28px;
+    vertical-align: middle; }
+    .share-social-link .social-link:hover {
+      opacity: 0.7;
+      transition: 0.3s;
+      transition-timing-function: linear; }
+  .share-social-link .facebook {
+    color: #3b5999; }
+  .share-social-link .twitter {
+    color: #2ba8de; }
+  .share-social-link .google-plus {
+    color: #cc3731; }
+  .share-social-link .linkedin {
+    color: #007ab5; }
+  .share-social-link .pinterest {
+    color: #ca1f28; }
+
 @media (max-width: 991px) {
   .download {
-    float: none !important; } }
+    float: none !important; }
+  .info-livre .adapt-width {
+    width: 95%; } }
 
 @media (max-width: 767px) {
   .view--nouveaux-livres-blancs-publies .white-books--teaser {
     text-align: center; }
   .view--nouveaux-livres-blancs-publies .info-livre {
     height: auto; }
+    .view--nouveaux-livres-blancs-publies .info-livre .adapt-width {
+      width: 100%; }
   .button-download {
     position: relative !important; }
   .view--nouveaux-livres-blancs-publies .row {
@@ -9071,6 +9204,15 @@ header button {
 @media (max-width: 767px) {
   .item-slider {
     text-align: center; } }
+
+.db {
+  display: block; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
 
 .bold {
   font-weight: bold; }
