@@ -78,7 +78,7 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
         <article{{ attributes.addClass(classes) }}>
             {% if not page %}
                 <div class="col-lg-3 col-md-4 col-sm-4">
-                    <img src="{{ file_url(node.field_image.0.entity.uri.value) }}"
+                    <img width="200" height="285" src="{{ file_url(node.field_image.0.entity.uri.value) }}"
                          alt="{{ node.getTitle() }}"/>
                 </div>
                 <div class="col-lg-9 col-md-8 col-sm-8 info-livre">
@@ -103,9 +103,89 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
                             </span>
                             <span class="download gray-text"><i
                                         class="material-icons">file_download</i>
-                                {{ node.get('field_download_count').value }}
+                                <span class="black-text">
+                                    {{ node.get('field_download_count').value }}
+                                </span>
+                                <span class="rate-yellow">
+                                    {% if ((moyenne_evaluation)/2) > 0
+                                    and ((moyenne_evaluation)/2) <= 0.5 %}
+                                        <i class="material-icons">star_half</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                    {% elseif ((moyenne_evaluation)/2) > 0.5
+                                    and ((moyenne_evaluation)/2) <= 1 %}
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                    {% elseif ((moyenne_evaluation)/2) > 1
+                                    and ((moyenne_evaluation)/2) <= 1.5 %}
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star_half</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                    {% elseif ((moyenne_evaluation)/2) > 1.5
+                                    and ((moyenne_evaluation)/2) <= 2 %}
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                    {% elseif ((moyenne_evaluation)/2) > 2
+                                    and ((moyenne_evaluation)/2) <= 2.5 %}
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star_half</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                    {% elseif ((moyenne_evaluation)/2) > 2.5
+                                    and ((moyenne_evaluation)/2) <= 3 %}
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                    {% elseif ((moyenne_evaluation)/2) > 3
+                                    and ((moyenne_evaluation)/2) <= 3.5 %}
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star_half</i>
+                                        <i class="material-icons">star_border</i>
+                                    {% elseif ((moyenne_evaluation)/2) > 3.5
+                                    and ((moyenne_evaluation)/2) <= 4 %}
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star_border</i>
+                                    {% elseif ((moyenne_evaluation)/2) > 4
+                                    and ((moyenne_evaluation)/2) <= 4.5 %}
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star_half</i>
+                                    {% elseif ((moyenne_evaluation)/2) > 4.5
+                                    and ((moyenne_evaluation)/2) <= 5 %}
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                    {% else %}
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                        <i class="material-icons">star_border</i>
+                                    {% endif %}
+                                </span>
                             </span>
-
                         </p>
                         <div class="mt-10 mb-20">
                             {% for keyWord in node.get('field_key_words') %}
@@ -122,12 +202,12 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
                         <div>
                             <a target="_blank" class="button-download vt-bottom" href="
                         {% if logged_in %}
-                            {{ file_url(node.get('field_file').0.entity.uri.value) }}
-                        {% else %}
-                            {{ url('user.register') }}
-                        {% endif %}
-                        ">
-                                Télécharger <i class="material-icons ico-butt-download">file_download</i>
+                            {{ file_url(node.get('field_file').0.entity.uri.value) }}" download="{{ node.getTitle() }}"
+                            {% else %}
+                                {{ url('user.login') }}"
+                            {% endif %}
+                            >
+                            Télécharger <i class="material-icons ico-butt-download">file_download</i>
                             </a>
                         </div>
                     </div>

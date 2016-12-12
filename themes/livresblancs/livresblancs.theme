@@ -22,17 +22,56 @@ function livresblancs_preprocess_node(&$variables)
         ->condition('nid', $node->id(), '!=')
         ->range(0, 4);
 
+    if ($node->field_categorie_principale != null) {
+        $queryWhiteBooksByCateg = \Drupal::entityQuery('node')
+            ->condition('status', 1)
+            ->condition('type', 'white_books')
+            ->condition('field_categorie_principale', $node->field_categorie_principale->getValue()[0]['target_id'])
+            ->condition('nid', $node->id(), '!=')
+            ->range(0, 4);
+
+        $nidWhBoByCateg  = $queryWhiteBooksByCateg->execute();
+        $thisWhBoByCateg = \Drupal\node\Entity\Node::loadMultiple($nidWhBoByCateg);
+        $variables['white_books_by_categ'] = $thisWhBoByCateg;
+    }
+
+    $queryLongAdd = \Drupal::entityQuery('node')
+        ->condition('status', 1)
+        ->condition('type', 'publicite_longue')
+        ->range(0, 1);
+    $queryLongAdd->addTag('random');
+
     $queryThisEditor = \Drupal::entityQuery('node')
         ->condition('status', 1)
         ->condition('type', 'editeur')
         ->condition('uid', $node->uid->getValue()[0]['target_id'])
         ->range(0, 1);
-    $nidsWhiteBook = $queryWhiteBooks->execute();
-    $nidEditor     = $queryThisEditor->execute();
 
-    $thisEditor = \Drupal\node\Entity\Node::loadMultiple($nidEditor);
-    $whiteBooks = \Drupal\node\Entity\Node::loadMultiple($nidsWhiteBook);
+    $cids = \Drupal::entityQuery('comment')
+        ->condition('status', 1)
+        ->condition('entity_id', $node->id())
+        ->condition('entity_type', 'node')
+        ->execute();
+
+    $evaluation = 0;
+    $ind        = 0;
+    foreach ($cids as $cid) {
+        $comment    = \Drupal\comment\Entity\Comment::load($cid);
+        $evaluation = $evaluation + $comment->get('field_evaluation')->getValue()[0]['value'];
+        $ind++;
+    }
+
+    $nidsWhiteBook = $queryWhiteBooks->execute();
+    $nidLongAdd    = $queryLongAdd->execute();
+    $nidEditor     = $queryThisEditor->execute();
+    $thisEditor    = \Drupal\node\Entity\Node::loadMultiple($nidEditor);
+    $thisLongAdd   = \Drupal\node\Entity\Node::loadMultiple($nidLongAdd);
+    $whiteBooks    = \Drupal\node\Entity\Node::loadMultiple($nidsWhiteBook);
 
     $variables['this_editor']        = $thisEditor;
     $variables['editor_white_books'] = $whiteBooks;
+    $variables['long_pub']           = $thisLongAdd;
+    if ($ind != 0) {
+        $variables['moyenne_evaluation'] = $evaluation / $ind;
+    }
 }

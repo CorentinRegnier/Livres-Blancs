@@ -79,13 +79,13 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
             .getTitle() }}"/>
         </p>
         <a target="_blank" class="button-download" href="
-                        {% if logged_in %}
-                            {{ file_url(node.get('field_file').0.entity.uri.value) }}
-                        {% else %}
-                            {{ url('user.register') }}
-                        {% endif %}
-                        ">
-            Télécharger <i class="material-icons ico-butt-download">&#xE2C4;</i>
+            {% if logged_in %}
+                {{ file_url(node.get('field_file').0.entity.uri.value) }}" download="{{ node.getTitle() }}"
+        {% else %}
+            {{ url('user.login') }}"
+        {% endif %}
+        >
+        Télécharger <i class="material-icons ico-butt-download">&#xE2C4;</i>
         </a>
         <p class="small-text">
             Ce livre blanc est édité par :
@@ -163,6 +163,91 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
         </div>
         <div class="stat-white-book pb-20">
             <span class="pr-10">
+                <span class="rate-yellow ml-0">
+                    {% if ((moyenne_evaluation)/2) > 0
+                    and ((moyenne_evaluation)/2) <= 0.5 %}
+                        <i class="material-icons">star_half</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                    {% elseif ((moyenne_evaluation)/2) > 0.5
+                    and ((moyenne_evaluation)/2) <= 1 %}
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                    {% elseif ((moyenne_evaluation)/2) > 1
+                    and ((moyenne_evaluation)/2) <= 1.5 %}
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star_half</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                    {% elseif ((moyenne_evaluation)/2) > 1.5
+                    and ((moyenne_evaluation)/2) <= 2 %}
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                    {% elseif ((moyenne_evaluation)/2) > 2
+                    and ((moyenne_evaluation)/2) <= 2.5 %}
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star_half</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                    {% elseif ((moyenne_evaluation)/2) > 2.5
+                    and ((moyenne_evaluation)/2) <= 3 %}
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                    {% elseif ((moyenne_evaluation)/2) > 3
+                    and ((moyenne_evaluation)/2) <= 3.5 %}
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star_half</i>
+                        <i class="material-icons">star_border</i>
+                    {% elseif ((moyenne_evaluation)/2) > 3.5
+                    and ((moyenne_evaluation)/2) <= 4 %}
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star_border</i>
+                    {% elseif ((moyenne_evaluation)/2) > 4
+                    and ((moyenne_evaluation)/2) <= 4.5 %}
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star_half</i>
+                    {% elseif ((moyenne_evaluation)/2) > 4.5
+                    and ((moyenne_evaluation)/2) <= 5 %}
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                    {% else %}
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                    {% endif %}
+                    </span>
+                <span class="number-stat">
+                    <span class="font-weight-700">{{ moyenne_evaluation/2 }}</span>
+                    ({{ node.comment.comment_count }} avis)
+                </span>
+            </span>
+            <span class="pr-10">
                     <i class="material-icons">file_download</i>
                 <span class="number-stat">
                     <span class="font-weight-700">{{ node.get('field_download_count').value }}</span>
@@ -195,12 +280,12 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
             <div class="col-lg-5">
                 <a target="_blank" class="button-download" href="
                         {% if logged_in %}
-                            {{ file_url(node.get('field_file').0.entity.uri.value) }}
-                        {% else %}
-                            {{ url('user.register') }}
-                        {% endif %}
-                        ">
-                    Télécharger ce livre blanc<i class="material-icons ico-butt-download">file_download</i>
+                            {{ file_url(node.get('field_file').0.entity.uri.value) }}" download="{{ node.getTitle() }}"
+                {% else %}
+                    {{ url('user.login') }}"
+                {% endif %}
+                >
+                Télécharger ce livre blanc<i class="material-icons ico-butt-download">file_download</i>
                 </a></div>
             <div class="col-lg-7 pt-10">
                 <span class="share-social-link pull-right">
@@ -215,12 +300,19 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
 
             </div>
         </div>
+        <div class="row">
+            {{ content.comment }}
+        </div>
     </div>
     <div class="col-lg-3">
-        <i class="material-icons">remove_red_eye</i>
-        <i class="material-icons">import_contacts</i>
-        <i class="material-icons">zoom_out_map</i>
-        <i class="material-icons">flag</i>
-        <i class="material-icons">file_download</i>
+        <div class="row">
+            <div class="add">
+                {% for pub in long_pub %}
+                    <span>Publicité</span>
+                    <img width="275" src="{{ file_url(pub.field_image_longue.0.entity.uri.value) }}"
+                         alt="{{ pub.title.value }}"/>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 </div>

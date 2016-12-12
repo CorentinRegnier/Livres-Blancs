@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 @import url("https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -8509,6 +8510,10 @@ h2 {
   font-size: 13px;
   color: #aaa; }
 
+.black-text {
+  font-size: 13px;
+  color: #666; }
+
 .keywords {
   background-color: #eeeeee;
   border-color: #666666;
@@ -8582,6 +8587,16 @@ h2 {
   .block--views-block--actualites-block-1 {
     text-align: center; } }
 
+.create-account:hover {
+  opacity: 0.7;
+  transition: 0.3s;
+  transition-timing-function: linear; }
+
+.add {
+  font-size: 12px;
+  color: #666666;
+  text-align: center; }
+
 .block--breadcrumbs .breadcrumb {
   padding-left: 10px;
   background-color: transparent; }
@@ -8600,6 +8615,91 @@ h2 {
   .block--breadcrumbs .breadcrumb li::before {
     content: '>';
     color: #00AA00; }
+
+.comment-form {
+  border-width: 0px;
+  border-radius: 0px;
+  border-color: #c8c8c8;
+  border-style: solid;
+  background-color: #f1f1f1;
+  padding: 20px; }
+  .comment-form .evaluation {
+    padding-top: 10px;
+    height: 40px; }
+  .comment-form .label-evaluation {
+    display: inline-block;
+    float: left;
+    padding-top: 3px; }
+  .comment-form .form-actions {
+    float: right;
+    display: inline-block; }
+  .comment-form form .form-actions .btn, .comment-form form .form-actions .media-widget > a, .comment-form form .form-actions .media-widget > a {
+    margin-right: 0px; }
+  .comment-form .form-submit {
+    border-color: #dddddd;
+    background-color: #666666;
+    color: white;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-width: 0px;
+    border-radius: 0px;
+    border-style: solid;
+    background-size: auto auto;
+    background-repeat: repeat;
+    background-position: center center;
+    font-size: 14px;
+    font-style: normal;
+    text-align: center;
+    width: 120px;
+    height: 35px; }
+    .comment-form .form-submit:hover {
+      background-color: #3498db;
+      transition: 0.3s;
+      transition-timing-function: linear; }
+  .comment-form .filter-wrapper {
+    display: none; }
+  .comment-form .field--name-field-evaluation {
+    display: inline-block; }
+    .comment-form .field--name-field-evaluation .panel-heading {
+      display: inline-block;
+      background-color: inherit;
+      border-color: inherit;
+      border: inherit;
+      color: #666666;
+      font-size: 14px;
+      width: auto;
+      padding: 1px 5px 0 0; }
+    .comment-form .field--name-field-evaluation .form-item-field-evaluation, .comment-form .field--name-field-evaluation .radio {
+      display: inline; }
+    .comment-form .field--name-field-evaluation .panel {
+      background-color: #f1f1f1;
+      display: inline-block;
+      padding-top: 5px;
+      border: none;
+      box-shadow: none; }
+    .comment-form .field--name-field-evaluation .panel-body {
+      padding: 0; }
+  .comment-form .fieldset-wrapper {
+    display: inline-block; }
+
+.comments {
+  color: #0065B3;
+  padding: 10px 0;
+  font-size: 14px; }
+
+.list-comment {
+  border-width: 0px;
+  border-radius: 0px;
+  border-color: #c8c8c8;
+  border-style: solid;
+  background-color: #EEF5FA; }
+
+.content-comment {
+  padding: 10px;
+  margin: 10px 0; }
+  .content-comment .material-icons, .content-comment .navbar-header .block--account-authitificated li:last-child a::after, .navbar-header .block--account-authitificated li:last-child .content-comment a::after, .content-comment .navbar-header .block--account-anonymous li:last-child a::after, .navbar-header .block--account-anonymous li:last-child .content-comment a::after, .content-comment .slick-prev:before, .content-comment .slick-next:before {
+    margin-right: -7px !important;
+    font-size: 18px !important; }
 
 main .container {
   width: auto; }
@@ -9130,6 +9230,50 @@ header button {
         left: 20px; }
       header .col-md-10 .navbar-header {
         float: inherit; } }
+
+.comment-form .field--name-field-evaluation {
+  /****** Style Star Rating Widget *****/
+  /****** Style Star Rating Widget *****/
+  /***** CSS Magic to Highlight Stars on Hover *****/
+  /* hover previous stars in list */ }
+  .comment-form .field--name-field-evaluation fieldset, .comment-form .field--name-field-evaluation label {
+    margin: 0;
+    padding: 0; }
+  .comment-form .field--name-field-evaluation .rating {
+    border: none;
+    display: inline-block;
+    padding-left: 5px; }
+  .comment-form .field--name-field-evaluation .rating input {
+    display: none; }
+  .comment-form .field--name-field-evaluation .rating label:before {
+    font-size: 1.25em;
+    font-family: FontAwesome;
+    content: "\f005"; }
+  .comment-form .field--name-field-evaluation .rating .half:before {
+    content: "\f089";
+    position: absolute; }
+  .comment-form .field--name-field-evaluation .rating label {
+    color: #ddd;
+    float: right; }
+  .comment-form .field--name-field-evaluation .rating input:checked ~ label,
+  .comment-form .field--name-field-evaluation .rating:not(:checked) > label:hover,
+  .comment-form .field--name-field-evaluation .rating:not(:checked) > label:hover ~ label {
+    color: #0065B3; }
+  .comment-form .field--name-field-evaluation .rating input:checked + label:hover,
+  .comment-form .field--name-field-evaluation .rating input:checked ~ label:hover,
+  .comment-form .field--name-field-evaluation .rating label:hover ~ input:checked ~ label,
+  .comment-form .field--name-field-evaluation .rating input:checked ~ label:hover ~ label {
+    color: #498FC6;
+    transition: 0.3s;
+    transition-timing-function: linear; }
+
+.rate-yellow {
+  color: #fcc600;
+  margin-left: 10px; }
+  .rate-yellow .material-icons, .rate-yellow .navbar-header .block--account-authitificated li:last-child a::after, .navbar-header .block--account-authitificated li:last-child .rate-yellow a::after, .rate-yellow .navbar-header .block--account-anonymous li:last-child a::after, .navbar-header .block--account-anonymous li:last-child .rate-yellow a::after, .rate-yellow .slick-prev:before, .rate-yellow .slick-next:before {
+    margin-right: -7px !important; }
+    .rate-yellow .material-icons:last-child, .rate-yellow .navbar-header .block--account-authitificated li:last-child a:last-child::after, .navbar-header .block--account-authitificated li:last-child .rate-yellow a:last-child::after, .rate-yellow .navbar-header .block--account-anonymous li:last-child a:last-child::after, .navbar-header .block--account-anonymous li:last-child .rate-yellow a:last-child::after, .rate-yellow .slick-prev:last-child:before, .rate-yellow .slick-next:last-child:before {
+      margin-right: 0px !important; }
 
 .item-slider {
   height: 400px;
