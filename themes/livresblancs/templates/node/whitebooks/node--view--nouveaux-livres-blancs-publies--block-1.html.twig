@@ -77,11 +77,11 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
     <div class="row">
         <article{{ attributes.addClass(classes) }}>
             {% if not page %}
-                <div class="col-lg-3 col-md-4 col-sm-4">
+                <div class="col-lg-3 col-md-4 col-sm-3">
                     <img width="200" height="285" src="{{ file_url(node.field_image.0.entity.uri.value) }}"
                          alt="{{ node.getTitle() }}"/>
                 </div>
-                <div class="col-lg-9 col-md-8 col-sm-8 info-livre">
+                <div class="col-lg-9 col-md-8 col-sm-8 info-book">
                     <div class="adapt-width">
                         <h3>
                             <a href="{{ url }}" class="title" rel="bookmark">
@@ -211,7 +211,7 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
                             </a>
                         </div>
                     </div>
-                </div>
+                </div
             {% endif %}
         </article>
     </div>

@@ -65,8 +65,9 @@
         border-color: rgb(200, 200, 200);
         border-style: solid;
     }
-    .info-livre {
+    .info-book {
         height: 285px;
+        padding-left: 30px;
 
         p {
             max-height: 126px;
@@ -225,13 +226,13 @@
     }
 }
 
-@media (max-width: $screen-desktop - 1) {
+@media (max-width: $screen-lg-desktop - 1) {
 
     .download {
         float: none !important;
     }
 
-    .info-livre {
+    .info-book {
 
         .adapt-width {
             width: 95%;
@@ -245,7 +246,7 @@
         .white-books--teaser {
             text-align: center;
         }
-        .info-livre {
+        .info-book {
             height: auto;
 
             .adapt-width {

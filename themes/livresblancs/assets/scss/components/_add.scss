@@ -12,3 +12,9 @@
     color: rgb(102, 102, 102);
     text-align: center;
 }
+
+@media (max-width: $screen-lg-desktop) {
+    .view--view-publicite-large--block-1 {
+        display: none;
+    }
+}

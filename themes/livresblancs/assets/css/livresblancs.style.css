@@ -8545,10 +8545,11 @@ h2 {
 
 .block--views-block--actualites-block-1 .block__title {
   margin: 0 0 11px 0;
-  padding-left: 15px; }
+  padding-left: 33px; }
 
 .block--views-block--actualites-block-1 .crop {
-  height: 115px; }
+  height: 115px;
+  text-align: right; }
 
 .block--views-block--actualites-block-1 img:hover {
   opacity: 0.7;
@@ -8581,7 +8582,9 @@ h2 {
   .item-actualities {
     padding-left: 0; }
   .block--views-block--actualites-block-1 .block__title {
-    padding-left: 0; } }
+    padding-left: 0; }
+  .block--views-block--actualites-block-1 .crop {
+    text-align: left; } }
 
 @media (max-width: 767px) {
   .block--views-block--actualites-block-1 {
@@ -8597,24 +8600,36 @@ h2 {
   color: #666666;
   text-align: center; }
 
-.block--breadcrumbs .breadcrumb {
-  padding-left: 10px;
-  background-color: transparent; }
-  .block--breadcrumbs .breadcrumb li {
+@media (max-width: 1200px) {
+  .view--view-publicite-large--block-1 {
+    display: none; } }
+
+.breadcrumb {
+  background-color: transparent;
+  padding-top: 4px !important; }
+  .breadcrumb li {
     width: auto;
     color: #666666; }
-    .block--breadcrumbs .breadcrumb li a {
+    .breadcrumb li a {
       color: #666666; }
-    .block--breadcrumbs .breadcrumb li a:hover {
+    .breadcrumb li a:hover {
       transition: 0.3s;
       transition-timing-function: linear;
       text-decoration: none;
       color: #fc0d00; }
-  .block--breadcrumbs .breadcrumb li:first-child::before {
+  .breadcrumb li:first-child::before {
     content: ''; }
-  .block--breadcrumbs .breadcrumb li::before {
+  .breadcrumb li::before {
     content: '>';
     color: #00AA00; }
+
+.breadcrumb > li + li:before {
+  content: '>' !important;
+  padding: 0 5px !important;
+  color: #00AA00 !important; }
+
+.block--breadcrumbs .breadcrumb {
+  display: none; }
 
 .comment-form {
   border-width: 0px;
@@ -8902,9 +8917,10 @@ header {
   border-color: #c8c8c8;
   border-style: solid; }
 
-.view--nouveaux-livres-blancs-publies .info-livre {
-  height: 285px; }
-  .view--nouveaux-livres-blancs-publies .info-livre p {
+.view--nouveaux-livres-blancs-publies .info-book {
+  height: 285px;
+  padding-left: 30px; }
+  .view--nouveaux-livres-blancs-publies .info-book p {
     max-height: 126px;
     overflow: hidden; }
 
@@ -9021,18 +9037,18 @@ header {
   .share-social-link .pinterest {
     color: #ca1f28; }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
   .download {
     float: none !important; }
-  .info-livre .adapt-width {
+  .info-book .adapt-width {
     width: 95%; } }
 
 @media (max-width: 767px) {
   .view--nouveaux-livres-blancs-publies .white-books--teaser {
     text-align: center; }
-  .view--nouveaux-livres-blancs-publies .info-livre {
+  .view--nouveaux-livres-blancs-publies .info-book {
     height: auto; }
-    .view--nouveaux-livres-blancs-publies .info-livre .adapt-width {
+    .view--nouveaux-livres-blancs-publies .info-book .adapt-width {
       width: 100%; }
   .button-download {
     position: relative !important; }
