@@ -226,6 +226,22 @@
     }
 }
 
+.text-same-category, .title-same-category {
+    color: #666666;
+}
+
+.text-same-category {
+    font-size: 12px;
+}
+
+.title-same-category {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.white-book-title-same-category {
+    font-size: 14px;
+    margin-bottom: 0px !important;
+}
 @media (max-width: $screen-lg-desktop - 1) {
 
     .download {

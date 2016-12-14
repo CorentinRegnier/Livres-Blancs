@@ -8502,9 +8502,30 @@ h2 {
   text-transform: uppercase;
   font-weight: 300; }
 
+.blue-text {
+  color: #0065b3;
+  font-size: 16px; }
+
+.big-black-text {
+  color: black;
+  font-size: 28px; }
+  .big-black-text:hover {
+    color: #0065b3;
+    opacity: 0,7;
+    transition: 0.3s;
+    transition-timing-function: linear; }
+
 .small-text {
   color: #666666;
   font-size: 12px; }
+
+.medium-gray-text {
+  font-size: 16px;
+  color: #666; }
+
+.small-medium-gray-text {
+  font-size: 15px;
+  color: #666; }
 
 .gray-text {
   font-size: 13px;
@@ -9037,6 +9058,20 @@ header {
   .share-social-link .pinterest {
     color: #ca1f28; }
 
+.text-same-category, .title-same-category {
+  color: #666666; }
+
+.text-same-category {
+  font-size: 12px; }
+
+.title-same-category {
+  font-size: 18px;
+  text-transform: uppercase; }
+
+.white-book-title-same-category {
+  font-size: 14px;
+  margin-bottom: 0px !important; }
+
 @media (max-width: 1199px) {
   .download {
     float: none !important; }
@@ -9347,7 +9382,7 @@ header button {
     transition-timing-function: linear; }
 
 .slick-dots {
-  bottom: 0px; }
+  bottom: 20px; }
   .slick-dots li.slick-active button:before {
     font-size: 13px;
     opacity: 1;
