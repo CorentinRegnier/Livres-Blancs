@@ -23,4 +23,5 @@
         'overlayShow': false
     });
 
+    $('.poll-homepage .button').val('Valider');
 })(jQuery);

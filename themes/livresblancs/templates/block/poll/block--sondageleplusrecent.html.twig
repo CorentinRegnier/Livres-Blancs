@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Default template for block.
+ */
+#}
+{% set classes = [
+'block',
+bundle ? 'block--' ~ bundle|clean_class,
+id ? 'block--' ~ id|clean_class,
+] %}
+    <div class="col-md-4 pl-30 mt-20">
+        <div class="poll-homepage">
+            <p>{{ 'Sondage'|upper }} proposé par {{ author }}</p>
+            {% if label %}
+                <p class="title">{{ label }}</p>
+            {% endif %}
+            {{ title_suffix }}
+            <div class="block__content">
+                {% block content %}
+                    {{ content }}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>

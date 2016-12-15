@@ -9282,6 +9282,51 @@ header button {
       header .col-md-10 .navbar-header {
         float: inherit; } }
 
+.poll .panel-heading {
+  display: none; }
+
+.poll .panel {
+  color: #0065B3;
+  overflow: visible !important;
+  border-color: #F0F6FA;
+  border-style: solid;
+  background-color: #F0F6FA;
+  font-size: 14px;
+  box-shadow: none; }
+  .poll .panel input {
+    float: left;
+    margin-right: 10px; }
+
+.poll .btn-default {
+  float: right;
+  background-color: #0065b3;
+  color: white;
+  padding: 6px 10px;
+  border-width: 0px;
+  border-radius: 0px;
+  border-style: solid;
+  font-size: 14px;
+  text-align: center;
+  width: 120px;
+  height: 35px;
+  margin-bottom: 5px;
+  margin-right: 5px; }
+  .poll .btn-default:hover {
+    transition: 0.3s;
+    transition-timing-function: linear;
+    opacity: 0.7; }
+
+.poll-homepage {
+  border-color: #F0F6FA;
+  border-style: solid;
+  background-color: #F0F6FA;
+  padding: 10px;
+  color: #0065B3; }
+  .poll-homepage .title {
+    font-size: 16px;
+    color: #0065b3;
+    font-weight: bold; }
+
 .comment-form .field--name-field-evaluation {
   /****** Style Star Rating Widget *****/
   /****** Style Star Rating Widget *****/

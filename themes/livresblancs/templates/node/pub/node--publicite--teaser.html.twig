@@ -73,14 +73,5 @@ not node.isPublished() ? bundle ~ '--unpublished',
 view_mode ? bundle ~ '--' ~ view_mode|clean_class,
 ] %}
 {{ attach_library('classy/node') }}
-<div class="row pb-30">
-    {% if not page %}
-        <img width="970" height="250" src="{{ file_url(node.get('field_image_large').0.entity.uri
-        .value) }}" alt="{{ node.getTitle() }}"/>
-        <a target="_blank" href="{{ url('user.login') }}">
-            <img height="250" class="create-account pull-right pr-25"
-                 src="/themes/livresblancs/images/bloc-creation-compte.jpg"
-                 alt="Créer uncompte"/>
-        </a>
-    {% endif %}
-</div>
+<img width="336" src="{{ file_url(node.field_image_pub.0.entity.uri.value) }}"
+     alt="{{ node.title.value }}"/>
