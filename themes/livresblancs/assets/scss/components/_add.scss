@@ -17,4 +17,15 @@
     .view--view-publicite-large--block-1 {
         display: none;
     }
+
+    .img-add {
+        width: 100%;
+    }
+}
+
+@media (max-width: $screen-desktop) {
+
+    .img-add {
+        width: 275%;
+    }
 }

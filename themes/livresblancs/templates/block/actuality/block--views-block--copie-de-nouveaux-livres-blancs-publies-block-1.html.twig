@@ -9,17 +9,20 @@
 bundle ? 'block--' ~ bundle|clean_class,
 id ? 'block--' ~ id|clean_class,
 ] %}
-    <div{{ attributes.addClass(classes)|without('id') }}>
-        {{ title_prefix }}
-        {% if label %}
-            <h2{{ title_attributes.addClass('block__title') }}>{{ label }}</h2>
-        {% endif %}
-        {{ title_suffix }}
-        <div class="block__content">
-            {% block content %}
-                {{ content }}
-            {% endblock %}
+        <div class="copy-last-book-published">
+            {{ title_prefix }}
+            {% if label %}
+                <h2 class="pr-15 pl-15">{{ label }}</h2>
+            {% endif %}
+            {{ title_suffix }}
+            <div class="block__content">
+                {% block content %}
+                    {{ content }}
+                {% endblock %}
+            </div>
         </div>
     </div>
 </div>
+<div class="pt-30 pb-30">
+    <a class="back-btn" href="javascript:history.go(-1)">Retour</a>
 </div>

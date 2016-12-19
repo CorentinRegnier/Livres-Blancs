@@ -14,7 +14,7 @@ function livresblancs_preprocess_node(&$variables)
 {
     $currentUser = $variables['user']->getAccount()->id();
     $node        = $variables['node'];
-    
+
     if ($node->field_categorie_principale != null) {
         $evaluations            = [];
         $editors                = [];
@@ -67,7 +67,13 @@ function livresblancs_preprocess_node(&$variables)
         ->condition('uid', $node->uid->getValue()[0]['target_id'])
         ->condition('nid', $node->id(), '!=')
         ->range(0, 4);
-    
+
+    $queryAllWhiteBooks = \Drupal::entityQuery('node')
+        ->condition('status', 1)
+        ->condition('type', 'white_books')
+        ->condition('uid', $node->uid->getValue()[0]['target_id'])
+        ->condition('nid', $node->id(), '!=');
+
     $queryLongAdd = \Drupal::entityQuery('node')
         ->condition('status', 1)
         ->condition('type', 'publicite_longue')
@@ -101,6 +107,7 @@ function livresblancs_preprocess_node(&$variables)
     }
 
     $nidsWhiteBook = $queryWhiteBooks->execute();
+    $nidsAllWhiteBook = $queryAllWhiteBooks->execute();
     $nidLongAdd    = $queryLongAdd->execute();
     $nidAdd        = $queryAdd->execute();
     $nidEditor     = $queryThisEditor->execute();
@@ -109,9 +116,11 @@ function livresblancs_preprocess_node(&$variables)
     $thisLongAdd = \Drupal\node\Entity\Node::loadMultiple($nidLongAdd);
     $thisAdd     = \Drupal\node\Entity\Node::loadMultiple($nidAdd);
     $whiteBooks  = \Drupal\node\Entity\Node::loadMultiple($nidsWhiteBook);
+    $allWhiteBooks = \Drupal\node\Entity\Node::loadMultiple($nidsAllWhiteBook);
 
     $variables['this_editor']        = $thisEditor;
     $variables['editor_white_books'] = $whiteBooks;
+    $variables['editor_all_white_books'] = $allWhiteBooks;
     $variables['long_pub']           = $thisLongAdd;
     $variables['add']                = $thisAdd;
 

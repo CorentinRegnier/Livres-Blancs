@@ -89,9 +89,10 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
             </ol>
         </nav>
     </div>
-    <div class="col-lg-2">
+    <div class="col-md-2">
         <p>
-            <img width="100%" src="{{ file_url(node.get('field_image').0.entity.uri.value) }}" alt="{{ node
+            <img class="img-white-book" width="100%" src="{{ file_url(node.get('field_image').0.entity.uri.value) }}"
+                 alt="{{ node
             .getTitle() }}"/>
         </p>
         <a target="_blank" class="button-download" href="
@@ -138,7 +139,7 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
             {% endfor %}
         </div>
     </div>
-    <div class="col-lg-7">
+    <div class="col-md-7">
         <h1>{{ node.title.value }}</h1>
         <div class="pb-20">
             <span class="sub-title pr-10">
@@ -293,7 +294,7 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
             {{ node.get('body').value|raw }}
         </div>
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-md-5">
                 <a target="_blank" class="button-download" href="
                         {% if logged_in %}
                             {{ file_url(node.get('field_file').0.entity.uri.value) }}" download="{{ node.getTitle() }}"
@@ -303,7 +304,7 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
                 >
                 Télécharger ce livre blanc<i class="material-icons ico-butt-download">file_download</i>
                 </a></div>
-            <div class="col-lg-7 pt-10">
+            <div class="col-md-7 pt-10">
                 <span class="share-social-link pull-right">
                     Partagez ce livre blanc :
                         <i class="fa fb-share-button fa-facebook-square social-link facebook ml-5 mr-5 "
@@ -320,13 +321,13 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
             {{ content.comment }}
         </div>
     </div>
-    <div class="col-lg-3">
+    <div class="col-md-3">
         <div class="row">
             <div class="add">
                 {% for pub in long_pub %}
-                    <span>Publicité</span>
+                    <div>Publicité</div>
                     <img width="275" src="{{ file_url(pub.field_image_longue.0.entity.uri.value) }}"
-                         alt="{{ pub.title.value }}"/>
+                         alt="{{ pub.title.value }}" class="img-add"/>
                 {% endfor %}
             </div>
             {% for whiteBook in white_books_by_categ %}

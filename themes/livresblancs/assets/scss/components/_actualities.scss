@@ -6,7 +6,7 @@
     }
     .block__title {
         margin: 0 0 11px 0;
-        padding-left: 33px;
+        padding-left: 8%;
     }
     .crop {
         height: 115px;
@@ -25,6 +25,12 @@
         .item-actualities {
             padding-bottom: 0;
         }
+    }
+}
+
+.content-actuality {
+    img {
+        width: 100%;
     }
 }
 
@@ -52,8 +58,34 @@
     border-style: solid;
     background-color: rgb(235, 235, 235);
 }
-@media (max-width: $screen-desktop - 1) {
 
+.page--actualites {
+
+    .actualities-picture {
+        width: 100%;
+    }
+}
+
+@media (max-width: $screen-desktop - 1) {
+    .txt-center-actuality {
+        text-align: center;
+    }
+    .page--actualites {
+        .actualities-picture {
+            width: 360px;
+        }
+    }
+
+    .copy-last-book-published {
+        text-align: center;
+
+        .media {
+            margin: 0 30%;
+        }
+        .media-body {
+            text-align: left;
+        }
+    }
     .item-actualities {
         padding-left: 0;
     }
@@ -69,9 +101,23 @@
 }
 
 @media (max-width: $screen-tablet - 1) {
-
     .block--views-block--actualites-block-1 {
         text-align: center;
+    }
+}
+
+@media (max-width: $screen-phone - 1) {
+    .page--actualites {
+
+        .actualities-picture {
+            width: 100%;
+        }
+    }
+    .copy-last-book-published {
+
+        .media {
+            margin: 0 10%;
+        }
     }
 }
 

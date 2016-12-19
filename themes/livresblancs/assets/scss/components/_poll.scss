@@ -1,4 +1,8 @@
 .poll {
+
+    .bar .foreground {
+        background-color: #0065B3;
+    }
     .panel-heading {
         display: none;
     }
@@ -51,5 +55,11 @@
         font-size: 16px;
         color: #0065b3;
         font-weight: bold;
+    }
+}
+
+@media (max-width: $screen-lg - 1) {
+    .poll .panel input {
+        float: none;
     }
 }

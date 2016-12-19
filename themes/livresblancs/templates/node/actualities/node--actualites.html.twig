@@ -91,14 +91,14 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
     </div>
     <div class="col-md-8">
         <div class="row pl-15 pr-15">
-            <div class="col-md-6 pl-0">
+            <div class="col-md-6 pl-0 txt-center-actuality">
                 <a id="actuality-fancybox" href="{{ file_url(node.field_couverture.0.entity.uri.value) }}">
                     <img class="actualities-picture" width="360"
                          src="{{ file_url(node.field_couverture.0.entity.uri.value) }}"
-                         alt="{{ node.getTitle }}" />
+                         alt="{{ node.getTitle }}"/>
                 </a>
             </div>
-            <p class="blue-text mb-0">
+            <p class="blue-text mb-0 txt-center-actuality">
                 {{ node.date|date('d/m/Y') }} | <strong>{{ node.field_categorie.entity.name.value }}</strong>
             </p>
             <h3 class="big-black-text">
@@ -107,7 +107,7 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
             <p class="medium-gray-text"><strong>{{ node.field_description.value }}</strong></p>
 
         </div>
-        <div>
+        <div class="content-actuality">
             <p class="small-medium-gray-text">
                 {{ node.field_content_actualities.value|raw }}
             </p>
@@ -150,7 +150,7 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
     <div class="col-md-4">
         <div class="add">
             {% for thisAdd in add %}
-                <span>Publicité</span>
+                <div>Publicité</div>
                 <img width="336" src="{{ file_url(thisAdd.field_image_pub.0.entity.uri.value) }}"
                      alt="{{ thisAdd.title.value }}"/>
             {% endfor %}

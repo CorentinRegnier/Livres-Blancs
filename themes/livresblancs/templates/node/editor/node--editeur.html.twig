@@ -72,39 +72,186 @@ node.isSticky() ? bundle ~ '--sticky',
 not node.isPublished() ? bundle ~ '--unpublished',
 view_mode ? bundle ~ '--' ~ view_mode|clean_class,
 ] %}
-{{ attach_library('classy/node') }}
-<div class="panel-row">
-    <div class="row">
-        <article{{ attributes.addClass(classes) }}>
-            {% if not page %}
-                <div class="col-lg-3 col-md-4 col-sm-3">
-                    <img width="200" height="285" src="{{ file_url(node.field_image.0.entity.uri.value) }}"
-                         alt="{{ node.getTitle() }}"/>
-                </div>
-                <div class="col-lg-9 col-md-8 col-sm-8 info-book">
-                    <div class="adapt-width">
-                        <h3>
-                            <a href="{{ url }}" class="title" rel="bookmark">
-                                {{ label }}
-                            </a>
-                        </h3>
-                        <p>
+<div class="row">
+    <div class="pl-15 pr-15 pb-30">
+        <nav role="navigation" aria-labelledby="system-breadcrumb">
+            <h2 id="system-breadcrumb" class="visually-hidden">Fil d'Ariane</h2>
+            <ol class="breadcrumb pl-0 mb-0">
+                <li>
+                    <a href="/">Accueil</a>
+                </li>
+                <li>
+                    <a href="#">Editeurs</a>
+                </li>
+                <li>
+                    <strong>{{ node.getTitle }}</strong>
+                </li>
+            </ol>
+        </nav>
+    </div>
+    <div class="col-md-3">
+        <div>
+            <img width="178px"
+                 src="{{ file_url((node.field_logo.0.entity.uri.value)) }}"
+                 alt="{{ node.getTitle() }}"/>
+        </div>
+        <div class="info-editor color-gray pr-10 pt-10 pl-10 pb-10">
+            <div class="pb-10">
+                <span class="color-blue">
+                    <strong>
+                        A propos de {{ node.getTitle() }}
+                    </strong>
+                </span>
+            </div>
+            <div>
+                Forme juridique :
+                <span class="color-blue">
+                    {{ node.field_forme_juridique.value }}
+                </span>
+            </div>
+            <div>
+                Date de création :
+                <span class="color-blue">
+                    {{ node.field_date.value|date('Y') }}
+                </span>
+            </div>
+            <div>
+                Type de société :
+                <span class="color-blue">
+                    {{ node.field_type_de_societe.value }}
+                </span>
+            </div>
+            <div>
+                Secteur d'activité :
+                <span class="color-blue">
+                    {{ node.field_secteur_d_activite.value }}
+                </span>
+            </div>
+            <div>
+                Chiffre d'affaires :
+                <span class="color-blue">
+                    {{ node.field_chiffre_d_affaires.value }}
+                </span>
+            </div>
+            <div>
+                Effectif(s) :
+                <span class="color-blue">
+                    {{ node.field_effectif.value }}
+                </span>
+            </div>
+            <div>
+                Etablissement(s) :
+                <span class="color-blue">
+                    {{ node.field_etablissement.value }}
+                </span>
+            </div>
+            <div>
+                Pays :
+                <span class="color-blue">
+                    {{ node.field_pays.value }}
+                </span>
+            </div>
+            <div>
+                Ville :
+                <span class="color-blue">
+                    {{ node.field_ville.value }}
+                </span>
+            </div>
+        </div>
+        <div class="pt-15 pb-5">
+            <div class="color-gray">
+                Métiers & expertises :
+            </div>
+            <div>
+                {% for keyWord in node.get('field_metiers_expertises') %}
+                    <span class="keywords">
+                        {{ keyWord.value|upper }}
+                    </span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="pt-15 pb-5">
+            <div class="editor-site-url">
+                <a target="_blank" href="{{ node.field_lien_url.uri }}">
+                    <strong>{{ node.field_lien_url.uri }}</strong>
+                </a>
+            </div>
+        </div>
+        <div class="pt-15 pb-5">
+            <span class="share-social-link">
+                <a target="_blank" href="{{ node.field_facebook.uri }}">
+                    <i class="fa fb-share-button fa-facebook-square social-link facebook ml-5 mr-5 "
+                       aria-hidden="true"></i>
+                </a>
+                <a target="_blank" href="{{ node.field_twitter.uri }}">
+                    <i class="fa fa-twitter-square social-link twitter mr-5" aria-hidden="true"></i>
+                </a>
+                <a target="_blank" href="{{ node.field_google_.uri }}">
+                    <i class="fa fa-google-plus-square social-link google-plus mr-5" aria-hidden="true"></i>
+                </a>
+                <a target="_blank" href="{{ node.field_linkedin.uri }}">
+                    <i class="fa fa-linkedin-square social-link linkedin mr-5" aria-hidden="true"></i>
+                </a>
+                <a target="_blank" href="{{ node.field_pinterest.uri }}">
+                    <i class="fa fa-pinterest-square social-link pinterest mr-5" aria-hidden="true"></i>
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="title-editor">
+            {{ node.getTitle() }}
+        </div>
+        <div class="pb-15">
+            <img width="100%"
+                 src="{{ file_url((node.field_bandeau.0.entity.uri.value)) }}"
+                 alt="{{ node.getTitle() }}"/>
+        </div>
+        <div class="pb-15 resume">
+            <strong>{{ node.field_resume_editeur.value }}</strong>
+        </div>
+        <div class="pb-15 description">
+            {{ node.field_contenu.value }}
+        </div>
+        <div>
+
+            {% for whiteBook in editor_all_white_books %}
+                {% if loop.index == 1 %}
+                    <div class="large-text uppercase">
+                        {{ node.getTitle() }} propose <strong>{{ editor_all_white_books|length }} livres blancs</strong>
+                    </div>
+                {% endif %}
+                {% if loop.index <= 3 %}
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-3">
+                            <img width="200" height="285" src="{{ file_url(whiteBook.field_image.0.entity.uri.value) }}"
+                                 alt="{{ whiteBook.getTitle() }}"/>
+                        </div>
+                        <div class="col-lg-9 col-md-8 col-sm-8 info-book">
+                            <div class="adapt-width">
+                                <h3>
+                                    <a href="{{ whiteBook.uri }}" class="title" rel="bookmark">
+                                        {{ whiteBook.label }}
+                                    </a>
+                                </h3>
+                                <p>
                             <span class="sub-title">
                                 {{ createdDate|date('d/m/Y') }} |
                                 <span class="author">
                                     {% for editor in this_editor %}
                                         {% if loop.index == 1 %}
-                                            <a href="{{ path('entity.node.canonical', {'node': editor.id}) }}">{{ editor.getTitle() }}</a>
+                                            <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">{{ node
+                                                .getTitle() }}</a>
                                         {% endif %}
                                     {% endfor %}
                                 </span>
                                     |
-                                <strong>{{ node.get('field_categorie_principale').entity.name.value }}</strong>
+                                <strong>{{ whiteBook.get('field_categorie_principale').entity.name.value }}</strong>
                             </span>
-                            <span class="download gray-text"><i
-                                        class="material-icons">file_download</i>
+                                    <span class="download gray-text"><i
+                                                class="material-icons">file_download</i>
                                 <span class="black-text">
-                                    {{ node.get('field_download_count').value }}
+                                    {{ whiteBook.get('field_download_count').value }}
                                 </span>
                                 <span class="rate-yellow">
                                     {% if ((moyenne_evaluation)/2) > 0
@@ -186,33 +333,39 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
                                     {% endif %}
                                 </span>
                             </span>
-                        </p>
-                        <div class="mt-10 mb-20">
-                            {% for keyWord in node.get('field_key_words') %}
-                                <span class="keywords">
+                                </p>
+                                <div class="mt-10 mb-20">
+                                    {% for keyWord in whiteBook.get('field_key_words') %}
+                                        <span class="keywords">
                                     {{ keyWord.value|upper }}
                                 </span>
-                            {% endfor %}
-                        </div>
-                        <div class="resume">
-                            <p>
-                                {{ node.get('field_resume').value }}
-                            </p>
-                        </div>
-                        <div>
-                            <a target="_blank" class="button-download vt-bottom" href="
-                        {% if logged_in %}
-                            {{ file_url(node.get('field_file').0.entity.uri.value) }}" download="{{ node.getTitle() }}"
-                            {% else %}
-                                {{ url('user.login') }}"
-                            {% endif %}
-                            >
-                            Télécharger <i class="material-icons ico-butt-download">file_download</i>
-                            </a>
+                                    {% endfor %}
+                                </div>
+                                <div class="resume">
+                                    <p>
+                                        {{ whiteBook.get('field_resume').value }}
+                                    </p>
+                                </div>
+                                <div class="vt-bottom">
+                                    <a target="_blank" class="button-download vt-bottom" href="
+                                {% if logged_in %}
+                                    {{ file_url(whiteBook.get('field_file').0.entity.uri.value) }}"
+                                       download="{{ whiteBook.getTitle() }}"
+                                    {% else %}
+                                        {{ url('user.login') }}"
+                                    {% endif %}
+                                    >
+                                    Télécharger <i class="material-icons ico-butt-download">file_download</i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endif %}
-        </article>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="pt-30 pb-30">
+            <a class="back-btn" href="javascript:history.go(-1)">Retour</a>
+        </div>
     </div>
 </div>

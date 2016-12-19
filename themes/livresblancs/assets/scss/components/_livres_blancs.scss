@@ -42,7 +42,6 @@
     .material-icons {
         font-size: 16px;
     }
-
 }
 
 .view--nouveaux-livres-blancs-publies, .item-white-book {
@@ -238,10 +237,12 @@
     font-size: 18px;
     text-transform: uppercase;
 }
+
 .white-book-title-same-category {
     font-size: 14px;
     margin-bottom: 0px !important;
 }
+
 @media (max-width: $screen-lg-desktop - 1) {
 
     .download {
@@ -256,6 +257,12 @@
     }
 }
 
+@media (max-width: $screen-desktop - 1) {
+    .img-white-book {
+        width: auto;
+    }
+}
+
 @media (max-width: $screen-tablet - 1) {
     .view--nouveaux-livres-blancs-publies {
 
@@ -264,7 +271,11 @@
         }
         .info-book {
             height: auto;
+            padding-right: 30px;
 
+            .rate-yellow {
+                display: block;
+            }
             .adapt-width {
                 width: 100%;
             }

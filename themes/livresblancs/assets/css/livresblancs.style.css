@@ -8511,13 +8511,29 @@ h2 {
   font-size: 28px; }
   .big-black-text:hover {
     color: #0065b3;
-    opacity: 0,7;
+    opacity: 0, 7;
     transition: 0.3s;
     transition-timing-function: linear; }
+
+.color-blue {
+  color: #0065B3; }
+
+.size-14 {
+  font-size: 14px; }
 
 .small-text {
   color: #666666;
   font-size: 12px; }
+
+.large-text {
+  color: #666666;
+  font-size: 18px; }
+
+.color-gray {
+  color: #666666; }
+
+.color-blue {
+  color: #0065B3; }
 
 .medium-gray-text {
   font-size: 16px;
@@ -8536,6 +8552,7 @@ h2 {
   color: #666; }
 
 .keywords {
+  display: inline-block;
   background-color: #eeeeee;
   border-color: #666666;
   border-width: 0px;
@@ -8545,7 +8562,7 @@ h2 {
   font-weight: bold;
   font-size: 8px;
   text-align: center;
-  margin: 20px 10px 0 0;
+  margin: 2px 1px;
   padding: 6px 10px; }
 
 .font-weight-300 {
@@ -8566,7 +8583,7 @@ h2 {
 
 .block--views-block--actualites-block-1 .block__title {
   margin: 0 0 11px 0;
-  padding-left: 33px; }
+  padding-left: 8%; }
 
 .block--views-block--actualites-block-1 .crop {
   height: 115px;
@@ -8579,6 +8596,9 @@ h2 {
 
 .block--views-block--actualites-block-1 .view__row:last-child .item-actualities {
   padding-bottom: 0; }
+
+.content-actuality img {
+  width: 100%; }
 
 .item-actualities {
   padding-bottom: 35px; }
@@ -8599,7 +8619,20 @@ h2 {
   border-style: solid;
   background-color: #ebebeb; }
 
+.page--actualites .actualities-picture {
+  width: 100%; }
+
 @media (max-width: 991px) {
+  .txt-center-actuality {
+    text-align: center; }
+  .page--actualites .actualities-picture {
+    width: 360px; }
+  .copy-last-book-published {
+    text-align: center; }
+    .copy-last-book-published .media {
+      margin: 0 30%; }
+    .copy-last-book-published .media-body {
+      text-align: left; }
   .item-actualities {
     padding-left: 0; }
   .block--views-block--actualites-block-1 .block__title {
@@ -8610,6 +8643,12 @@ h2 {
 @media (max-width: 767px) {
   .block--views-block--actualites-block-1 {
     text-align: center; } }
+
+@media (max-width: 479px) {
+  .page--actualites .actualities-picture {
+    width: 100%; }
+  .copy-last-book-published .media {
+    margin: 0 10%; } }
 
 .create-account:hover {
   opacity: 0.7;
@@ -8623,7 +8662,13 @@ h2 {
 
 @media (max-width: 1200px) {
   .view--view-publicite-large--block-1 {
-    display: none; } }
+    display: none; }
+  .img-add {
+    width: 100%; } }
+
+@media (max-width: 992px) {
+  .img-add {
+    width: 275%; } }
 
 .breadcrumb {
   background-color: transparent;
@@ -8748,6 +8793,24 @@ main .container {
   main .container {
     width: auto !important; } }
 
+.info-editor {
+  border-width: 0px;
+  border-style: solid;
+  background-color: #F3F8FC;
+  font-size: 13px; }
+
+.title-editor {
+  font-size: 28px;
+  color: #0065b3;
+  padding-bottom: 15px;
+  font-weight: bold; }
+
+.editor-site-url a:hover {
+  text-decoration: none;
+  opacity: 0.7;
+  transition: 0.3s;
+  transition-timing-function: linear; }
+
 footer {
   width: 1170px;
   height: 241px;
@@ -8850,12 +8913,29 @@ html {
   padding: 15px 0px 0px 33px;
   box-shadow: 0px 0px 12px 200px #e8e8e8; }
 
+.back-btn {
+  opacity: 1;
+  background-color: #bbbbbb;
+  background-image: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 30px;
+  border-width: 0px;
+  border-radius: 0px;
+  font-size: 14px;
+  font-style: normal;
+  text-align: center; }
+  .back-btn:hover {
+    opacity: 0.7;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    transition-timing-function: linear; }
+
 .material-icons, .navbar-header .block--account-authitificated li:last-child a::after, .navbar-header .block--account-anonymous li:last-child a::after, .slick-prev:before, .slick-next:before {
   vertical-align: middle;
   direction: ltr;
-  /*display: inline-block;*/
   font-family: 'Material Icons';
-  /*font-size: inherit !important;*/
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -9078,11 +9158,18 @@ header {
   .info-book .adapt-width {
     width: 95%; } }
 
+@media (max-width: 991px) {
+  .img-white-book {
+    width: auto; } }
+
 @media (max-width: 767px) {
   .view--nouveaux-livres-blancs-publies .white-books--teaser {
     text-align: center; }
   .view--nouveaux-livres-blancs-publies .info-book {
-    height: auto; }
+    height: auto;
+    padding-right: 30px; }
+    .view--nouveaux-livres-blancs-publies .info-book .rate-yellow {
+      display: block; }
     .view--nouveaux-livres-blancs-publies .info-book .adapt-width {
       width: 100%; }
   .button-download {
@@ -9236,6 +9323,10 @@ header button {
     display: inline-block;
     float: right;
     height: 80px; }
+  .block--account-authitificated .navbar-nav li {
+    display: inline-block; }
+    .block--account-authitificated .navbar-nav li a {
+      display: inline-block; }
   .block--livresblancs-main-menu .navbar-toggler {
     display: block; }
   .block--livresblancs-main-menu ul {
@@ -9282,6 +9373,9 @@ header button {
       header .col-md-10 .navbar-header {
         float: inherit; } }
 
+.poll .bar .foreground {
+  background-color: #0065B3; }
+
 .poll .panel-heading {
   display: none; }
 
@@ -9326,6 +9420,10 @@ header button {
     font-size: 16px;
     color: #0065b3;
     font-weight: bold; }
+
+@media (max-width: 1199px) {
+  .poll .panel input {
+    float: none; } }
 
 .comment-form .field--name-field-evaluation {
   /****** Style Star Rating Widget *****/

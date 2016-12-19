@@ -32,14 +32,36 @@ h2 {
     &:hover {
         color: rgb(0, 101, 179);
 
-        opacity: 0,7;
+        opacity: 0, 7;
         transition: 0.3s;
         transition-timing-function: linear;
     }
 }
+
+.color-blue {
+    color: #0065B3;
+}
+
+.size-14 {
+    font-size: 14px;
+}
+
 .small-text {
     color: #666666;
     font-size: 12px;
+}
+
+.large-text {
+    color: #666666;
+    font-size: 18px;
+}
+
+.color-gray {
+    color: #666666;
+}
+
+.color-blue {
+    color: #0065B3;
 }
 
 .medium-gray-text {
@@ -61,7 +83,9 @@ h2 {
     font-size: 13px;
     color: #666;
 }
+
 .keywords {
+    display: inline-block;
     background-color: rgb(238, 238, 238);
     border-color: rgb(102, 102, 102);
     border-width: 0px;
@@ -71,7 +95,7 @@ h2 {
     font-weight: bold;
     font-size: 8px;
     text-align: center;
-    margin: 20px 10px 0 0;
+    margin: 2px 1px;
     padding: 6px 10px;
 }
 
