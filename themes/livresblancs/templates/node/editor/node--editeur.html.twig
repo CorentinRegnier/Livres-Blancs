@@ -202,11 +202,13 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
         <div class="title-editor">
             {{ node.getTitle() }}
         </div>
-        <div class="pb-15">
-            <img width="100%"
-                 src="{{ file_url((node.field_bandeau.0.entity.uri.value)) }}"
-                 alt="{{ node.getTitle() }}"/>
-        </div>
+        {% if node.field_bandeau.0.entity.uri.value != null %}
+            <div class="pb-15">
+                <img width="100%"
+                     src="{{ file_url(node.field_bandeau.0.entity.uri.value) }}"
+                     alt="{{ node.getTitle() }}"/>
+            </div>
+        {% endif %}
         <div class="pb-15 resume">
             <strong>{{ node.field_resume_editeur.value }}</strong>
         </div>
@@ -217,7 +219,7 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
 
             {% for whiteBook in editor_all_white_books %}
                 {% if loop.index == 1 %}
-                    <div class="large-text uppercase">
+                    <div class="large-text uppercase pb-15">
                         {{ node.getTitle() }} propose <strong>{{ editor_all_white_books|length }} livres blancs</strong>
                     </div>
                 {% endif %}
@@ -229,7 +231,7 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
                         </div>
                         <div class="col-lg-9 col-md-8 col-sm-8 info-book">
                             <div class="adapt-width">
-                                <h3>
+                                <h3 class="mt-0">
                                     <a href="{{ whiteBook.uri }}" class="title" rel="bookmark">
                                         {{ whiteBook.label }}
                                     </a>
@@ -350,7 +352,7 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
                                     <a target="_blank" class="button-download vt-bottom" href="
                                     {% if logged_in %}
                                         {{ file_url(whiteBook.get('field_file').0.entity.uri.value) }}"
-                                           download="{{ whiteBook.getTitle() }}"
+                                       download="{{ whiteBook.getTitle() }}"
                                     {% else %}
                                         {{ url('user.login') }}"
                                     {% endif %}
