@@ -332,13 +332,13 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
                                         <i class="material-icons">star_border</i>
                                     {% endif %}
                                 </span>
-                            </span>
+                                </span>
                                 </p>
                                 <div class="mt-10 mb-20">
                                     {% for keyWord in whiteBook.get('field_key_words') %}
                                         <span class="keywords">
-                                    {{ keyWord.value|upper }}
-                                </span>
+                                        {{ keyWord.value|upper }}
+                                        </span>
                                     {% endfor %}
                                 </div>
                                 <div class="resume">
@@ -348,9 +348,9 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
                                 </div>
                                 <div class="vt-bottom">
                                     <a target="_blank" class="button-download vt-bottom" href="
-                                {% if logged_in %}
-                                    {{ file_url(whiteBook.get('field_file').0.entity.uri.value) }}"
-                                       download="{{ whiteBook.getTitle() }}"
+                                    {% if logged_in %}
+                                        {{ file_url(whiteBook.get('field_file').0.entity.uri.value) }}"
+                                           download="{{ whiteBook.getTitle() }}"
                                     {% else %}
                                         {{ url('user.login') }}"
                                     {% endif %}
