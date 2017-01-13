@@ -84,6 +84,7 @@
         display: inline-block;
     }
 }
+
 .comments {
     color: #0065B3;
     padding: 10px 0;
@@ -106,5 +107,34 @@
     .material-icons {
         margin-right: -7px !important;
         font-size: 18px !important;
+    }
+}
+
+.last-comment {
+    border-width: 0px;
+    border-style: solid;
+    padding: 10px;
+    color: #0065B3;
+    background-color: rgb(246, 246, 246);
+
+    .title {
+        font-size: 12px;
+        color: #666;
+        padding-bottom: 5px;
+    }
+    .node-title {
+        font-weight: bold;
+        font-size: 14px;
+        padding-bottom: 5px;
+
+    }
+    .body-comment {
+        font-size: 12px;
+    }
+    .author-comment {
+        font-size: 12px;
+        font-weight: bold;
+        padding-bottom: 5px;
+
     }
 }

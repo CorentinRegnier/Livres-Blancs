@@ -106,6 +106,12 @@ function livresblancs_preprocess_node(&$variables)
         $ind++;
     }
 
+    $lastCid = \Drupal::entityQuery('comment')
+        ->condition('status', 1)
+        ->sort('cid', 'desc')
+        ->range(0, 1)
+        ->execute();
+
     $nidsWhiteBook = $queryWhiteBooks->execute();
     $nidsAllWhiteBook = $queryAllWhiteBooks->execute();
     $nidLongAdd    = $queryLongAdd->execute();
@@ -117,12 +123,17 @@ function livresblancs_preprocess_node(&$variables)
     $thisAdd     = \Drupal\node\Entity\Node::loadMultiple($nidAdd);
     $whiteBooks  = \Drupal\node\Entity\Node::loadMultiple($nidsWhiteBook);
     $allWhiteBooks = \Drupal\node\Entity\Node::loadMultiple($nidsAllWhiteBook);
+    $lastComment = null;
+    foreach ($lastCid as $comment){
+        $lastComment = \Drupal\comment\Entity\Comment::load($comment);
+    }
 
     $variables['this_editor']        = $thisEditor;
     $variables['editor_white_books'] = $whiteBooks;
     $variables['editor_all_white_books'] = $allWhiteBooks;
     $variables['long_pub']           = $thisLongAdd;
     $variables['add']                = $thisAdd;
+    $variables['last_comment'] = $lastComment;
 
     if ($ind != 0) {
         $variables['moyenne_evaluation'] = $evaluation / $ind;

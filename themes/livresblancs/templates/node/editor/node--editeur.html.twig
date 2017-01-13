@@ -197,6 +197,20 @@ view_mode ? bundle ~ '--' ~ view_mode|clean_class,
                 </a>
             </span>
         </div>
+        <div class="last-comment">
+            <div class="title">
+                {{ 'Dernier commentaire'|upper }}
+            </div>
+            <div class="node-title">
+            {{ last_comment.getCommentedEntity().getTitle() }}
+            </div>
+            <div class="author-comment">
+            {{ last_comment.getAuthorName() }}, le {{ last_comment.date|date('d/m/Y') }}
+            </div>
+            <div class="body-comment">
+            "{{ last_comment.comment_body.value }}"
+            </div>
+        </div>
     </div>
     <div class="col-md-9">
         <div class="title-editor">

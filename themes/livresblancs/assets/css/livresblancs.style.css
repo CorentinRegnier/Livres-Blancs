@@ -8782,6 +8782,27 @@ h2 {
     margin-right: -7px !important;
     font-size: 18px !important; }
 
+.last-comment {
+  border-width: 0px;
+  border-style: solid;
+  padding: 10px;
+  color: #0065B3;
+  background-color: #f6f6f6; }
+  .last-comment .title {
+    font-size: 12px;
+    color: #666;
+    padding-bottom: 5px; }
+  .last-comment .node-title {
+    font-weight: bold;
+    font-size: 14px;
+    padding-bottom: 5px; }
+  .last-comment .body-comment {
+    font-size: 12px; }
+  .last-comment .author-comment {
+    font-size: 12px;
+    font-weight: bold;
+    padding-bottom: 5px; }
+
 main .container {
   width: auto; }
 
